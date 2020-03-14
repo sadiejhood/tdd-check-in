@@ -5,6 +5,7 @@ import { Title, Button, Container, Table, Field, Control, Input, Content, Messag
 import FirebaseHelper from './Functions/FirebaseHelper';
 import * as emailjs from 'emailjs-com'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import EmergencyContacts from './EmergencyContacts';
 
 
 const currentDate = new Date();
@@ -161,7 +162,7 @@ const App = () => {
     }
   }
 
-  const EmergencyContacts = ({contacts}) => {
+  const EmergencyContacts2 = ({contacts}) => {
     return (
       <Table id='contact-table'>
         <Table.Body>
@@ -210,23 +211,7 @@ const App = () => {
       </Button.Group>
       
       <div hidden={!showContacts}>
-      <Title size={5} id='contact-header'>Emergency Contacts</Title>
-      <EmergencyContacts contacts={ contacts }/>
-      <br/>
-      
-      <Field>
-        <Control className='input-box'>
-          <Input type='text' placeholder="Contact's Name" onChange={ e => currName=e.target.value }/>
-        </Control>
-        <Control className='input-box'>
-          <Input type='text' placeholder="Contact's Email" onChange={ e => currNum=e.target.value }/>
-        </Control>
-      </Field>
-      <Content size='medium' className='invalid-email' hidden={ !invalidEmail }>Invalid Email</Content>
-      <br/>
-      <Button.Group align='centered'>
-        <Button size={ 'medium' } color={ 'info' } onClick={() => AddContact(currName, currNum) }>Add Emergency Contacts</Button>
-      </Button.Group>
+        <EmergencyContacts />
       </div>
 
     </Container>
