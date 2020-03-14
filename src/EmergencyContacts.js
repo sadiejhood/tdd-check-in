@@ -106,10 +106,10 @@ const EmergencyContacts = () => {
             <Input type='text' placeholder="Contact's Email" onChange={ e => currNum=e.target.value }/>
             </Control>
         </Field>
-        <Content size='medium' className='invalid-email' hidden={ !invalidEmail }>Invalid Email</Content>
+        <Content size='medium' className='invalid-email' hidden={ !invalidEmail } data-invalidEmail={'invalid-email'}>Invalid Email</Content>
         <br/>
         <Button.Group align='centered'>
-            <Button size={ 'medium' } color={ 'info' } onClick={() => AddContact(currName, currNum) }>Add Emergency Contacts</Button>
+            <Button size={ 'medium' } data-addContact={'add-contact'} color={ 'info' } onClick={() => AddContact(currName, currNum) }>Add Emergency Contacts</Button>
         </Button.Group>
       </div>
     );
