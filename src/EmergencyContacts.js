@@ -4,6 +4,7 @@ import './App.css';
 import 'rbx/index.css';
 import { Title, Button, Container, Table, Field, Control, Input, Content, Message } from 'rbx';
 import FirebaseHelper from './Functions/FirebaseHelper';
+import {render, fireEvent} from 'react-testing-library';
 import * as emailjs from 'emailjs-com'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
@@ -93,7 +94,7 @@ const EmergencyContacts = () => {
 
     return (
       <div>
-        <Title size={5} id='contact-header'>Emergency Contacts</Title>
+        <Title data-testid={`contact-header`} size={5} id='contact-header'>Emergency Contacts</Title>
         <EmergencyContacts2 contacts={ contacts }/>
         <br/>
         
@@ -116,4 +117,13 @@ const EmergencyContacts = () => {
 };
 
 export default EmergencyContacts;
+
+// import React from 'react';
+// import {render, fireEvent} from 'react-testing-library';
+// import EmergencyContacts from './EmergencyContacts';
+
+test('make it render', () => {
+    const { rendered } = render(EmergencyContacts);
+    expect( rendered('contact-header').textContent ).toBe("Emergency Contacts")
+})
 
